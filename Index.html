@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Loan Application Portal</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+/* Hide scrollbar if any */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Seamless marquee */
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-marquee 12s linear infinite;
+}
+@keyframes scroll-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+</style>
+</head>
+<body class="bg-gray-100">
+
+<!-- 🔥 FIXED SEAMLESS AUTO-SCROLL HEADER -->
+<div class="w-full bg-green-600 text-white text-sm font-semibold py-2 overflow-hidden fixed top-0 left-0 z-50 shadow-md">
+
+    <div class="marquee-track flex items-center whitespace-nowrap">
+
+        <div class="marquee-content flex items-center gap-10">
+            <span>⚡ Fast Approval</span>
+            <span>✔ Instant Processing</span>
+            <span>💰 Low Interest Rates</span>
+            <span>🏦 Trusted Loan Partners</span>
+            <span>📄 100% Paperless</span>
+            <span>🔒 Secure & Safe</span>
+        </div>
+
+        <!-- 🔁 Duplicate — NO GAP seamless loop -->
+        <div class="marquee-content flex items-center gap-10">
+            <span>⚡ Fast Approval</span>
+            <span>✔ Instant Processing</span>
+            <span>💰 Low Interest Rates</span>
+            <span>🏦 Trusted Loan Partners</span>
+            <span>📄 100% Paperless</span>
+            <span>🔒 Secure & Safe</span>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- MAIN CONTENT -->
+<div class="pt-16 pb-6">
+
+    <!-- Banner -->
+    <div class="px-3">
+        <img src="https://via.placeholder.com/800x250"
+             class="rounded-xl w-full h-40 object-cover shadow-md mt-2" />
+    </div>
+
+    <!-- Categories -->
+    <h2 class="text-lg font-bold px-3 mt-4">Loan Categories</h2>
+
+    <div class="grid grid-cols-2 gap-3 p-3">
+
+        <button onclick="openCategory('salaried')"
+            class="bg-white shadow p-3 rounded-xl flex items-center gap-3">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" class="w-10" />
+            <div>
+                <p class="font-semibold text-sm">Salaried</p>
+                <p class="text-xs text-gray-500">Instant Loan</p>
+            </div>
+        </button>
+
+        <button onclick="openCategory('self')"
+            class="bg-white shadow p-3 rounded-xl flex items-center gap-3">
+            <img src="https://cdn-icons-png.flaticon.com/512/2922/2922579.png" class="w-10" />
+            <div>
+                <p class="font-semibold text-sm">Self-Employed</p>
+                <p class="text-xs text-gray-500">Low Interest</p>
+            </div>
+        </button>
+
+        <button onclick="openCategory('student')"
+            class="bg-white shadow p-3 rounded-xl flex items-center gap-3">
+            <img src="https://cdn-icons-png.flaticon.com/128/3135/3135789.png" class="w-10" />
+            <div>
+                <p class="font-semibold text-sm">Student</p>
+                <p class="text-xs text-gray-500">Education Loan</p>
+            </div>
+        </button>
+
+        <button onclick="openCategory('business')"
+            class="bg-white shadow p-3 rounded-xl flex items-center gap-3">
+            <img src="https://cdn-icons-png.flaticon.com/512/1995/1995502.png" class="w-10" />
+            <div>
+                <p class="font-semibold text-sm">Business</p>
+                <p class="text-xs text-gray-500">High Limit</p>
+            </div>
+        </button>
+
+    </div>
+
+
+    <!-- CIBIL Range Slider -->
+    <div class="p-3 bg-white rounded-xl shadow mx-3">
+        <label class="font-semibold">CIBIL Score</label>
+        <input type="range" min="300" max="900" value="650"
+               id="cibilRange"
+               class="w-full mt-1"
+               oninput="document.getElementById('cibilValue').innerText=this.value">
+        <p class="text-right font-bold text-sm mt-1">
+            Selected: <span id="cibilValue">650</span>
+        </p>
+    </div>
+
+    <!-- Profile Filter -->
+    <div class="p-3 bg-white rounded-xl shadow mx-3 mt-3">
+        <label class="font-semibold text-gray-800">Select Profile</label>
+
+        <div class="grid grid-cols-4 gap-2 mt-2 text-sm">
+            <button class="p-2 bg-gray-100 border rounded-lg" onclick="filterProfile('salaried')">Salaried</button>
+            <button class="p-2 bg-gray-100 border rounded-lg" onclick="filterProfile('self')">Self</button>
+            <button class="p-2 bg-gray-100 border rounded-lg" onclick="filterProfile('student')">Student</button>
+            <button class="p-2 bg-gray-100 border rounded-lg" onclick="filterProfile('business')">Business</button>
+        </div>
+    </div>
+
+
+    <!-- Loan Products -->
+    <h2 class="text-lg font-bold px-3 mt-5">Top Loan Partners</h2>
+
+    <div class="p-3" id="products">
+
+        <div class="bg-white rounded-xl shadow p-3 flex items-center justify-between mb-3">
+            <img src="https://via.placeholder.com/60" class="w-14 rounded" />
+            
+            <div class="flex-1 px-3">
+                <p class="font-bold text-gray-800">MoneyTap</p>
+                <p class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded mt-1 w-fit">
+                    Instant Approval
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <button class="px-3 py-1 border rounded-lg text-sm"
+                    onclick="alert('Eligibility Details')">
+                    Know More
+                </button>
+                <button class="px-3 py-1 bg-green-600 text-white rounded-lg text-sm"
+                    onclick="window.location.href='https://google.com'">
+                    Apply Now
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+function openCategory(c) {
+    alert("Open category: " + c);
+}
+function filterProfile(p) {
+    alert("Filtered for: " + p);
+}
+</script>
+
+</body>
+</html>
