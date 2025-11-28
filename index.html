@@ -19,8 +19,15 @@
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
+
+@keyframes fadeIn {
+    from {opacity:0; transform:scale(.95);}
+    to {opacity:1; transform:scale(1);}
+}
+.animate-fade { animation: fadeIn .25s ease-out; }
 </style>
 </head>
+
 <body class="bg-gray-100">
 
 <!-- FIXED HEADER -->
@@ -45,15 +52,16 @@
     </div>
 </div>
 
-<!-- LESS GAP -->
+<!-- PAGE CONTENT -->
 <div class="pt-10 pb-6">
 
-    <!-- FULL WIDTH RESPONSIVE BANNER -->
+    <!-- BANNER -->
     <div class="px-0 mt-1">
         <img src="banner1.jpg" class="w-full h-auto object-cover rounded-none shadow-md" />
     </div>
 
-    <!-- ⭐ Loan Category Section with App UI BG ⭐ -->
+
+    <!-- ⭐ Loan Category Section -->
     <div class="bg-gradient-to-r from-blue-50 to-blue-100 py-2 mt-2">
 
         <h2 class="text-lg font-bold px-3 mt-3 text-center text-gray-800 leading-tight">
@@ -61,7 +69,6 @@
         </h2>
 
         <div class="grid grid-cols-2 gap-3 p-3">
-
             <button onclick="location.href='salaried.html'"
                 class="bg-blue-100 shadow p-3 rounded-xl flex items-center gap-3 border border-blue-200">
                 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" class="w-10" />
@@ -97,11 +104,11 @@
                     <p class="text-xs text-purple-700">High Limit</p>
                 </div>
             </button>
-
         </div>
     </div>
 
-    <!-- ⭐ Free Tools Section with App UI BG ⭐ -->
+
+    <!-- ⭐ Free Tools Section -->
     <div class="bg-gradient-to-r from-purple-50 to-purple-100 py-2 mt-2">
 
         <h2 class="text-lg font-bold px-3 mt-1 text-center text-gray-800">
@@ -112,14 +119,15 @@
             <a href="https://sales.gromo.in/admin/check-credit/?versionCode=null">
                 <img src="b1.png" class="w-full h-auto rounded-xl shadow" />
             </a>
-
             <a href="https://sales.gromo.in/Credit/74MD1436/check-challan">
                 <img src="b3.png" class="w-full h-auto rounded-xl shadow" />
             </a>
         </div>
     </div>
 
-    <!-- ⭐ CIBIL Section with App UI BG ⭐ -->
+
+
+    <!-- ⭐ CIBIL Section -->
     <div class="bg-gradient-to-r from-green-50 to-green-100 py-3 mt-2">
 
         <h2 class="text-lg font-bold text-center text-gray-800 mt-1">
@@ -149,49 +157,186 @@
         </div>
     </div>
 
-    <!-- Loan Products -->
-    <h2 class="text-lg font-bold px-3 mt-5">Top Loan Partners</h2>
 
-    <div class="p-3" id="products">
 
-        <div class="bg-white rounded-xl shadow p-3 flex items-center justify-between mb-3">
-            <img src="https://via.placeholder.com/60" class="w-14 rounded" />
-            
-            <div class="flex-1 px-3">
-                <p class="font-bold text-gray-800">MoneyTap</p>
-                <p class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded mt-1 w-fit">
-                    Instant Approval
-                </p>
+    <!-- ⭐ Loan Products -->
+    <h2 class="text-lg font-bold px-3 mt-5 text-center text-gray-800">
+        Top Loan Partners
+    </h2>
+
+    <div class="grid grid-cols-1 gap-4 p-3" id="products">
+
+        <!-- PRODUCT 1 -->
+        <div class="product-card bg-white rounded-2xl shadow-lg p-4 flex items-center gap-4 border border-gray-200"
+             data-profile="salaried,self"
+             data-min="650"
+             data-max="900">
+
+            <img src="https://via.placeholder.com/70" class="w-16 h-16 rounded-xl" />
+
+            <div class="flex-1">
+                <p class="font-bold text-gray-900 text-base">MoneyTap</p>
+                <p class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-lg mt-1 w-fit">Instant Approval</p>
+                <p class="text-xs text-gray-500 mt-1">Loan upto ₹2,00,000</p>
             </div>
 
             <div class="flex flex-col gap-2">
-                <button class="px-3 py-1 border rounded-lg text-sm"
-                    onclick="alert('Eligibility Details')">
-                    Know More
+                <button class="px-3 py-1 border rounded-lg text-sm text-gray-700"
+                    onclick="openPopup('MoneyTap')">Know More</button>
+
+                <button class="px-3 py-1 bg-green-600 text-white rounded-lg text-sm shadow">
+                    Apply Now
                 </button>
-                <button class="px-3 py-1 bg-green-600 text-white rounded-lg text-sm"
-                    onclick="window.location.href='https://google.com'">
+            </div>
+        </div>
+
+        <!-- PRODUCT 2 -->
+        <div class="product-card bg-white rounded-2xl shadow-lg p-4 flex items-center gap-4 border border-gray-200"
+             data-profile="student,self"
+             data-min="600"
+             data-max="850">
+
+            <img src="https://via.placeholder.com/70" class="w-16 h-16 rounded-xl" />
+
+            <div class="flex-1">
+                <p class="font-bold text-gray-900 text-base">KreditBee</p>
+                <p class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-lg mt-1 w-fit">Fast Verification</p>
+                <p class="text-xs text-gray-500 mt-1">Loan upto ₹1,50,000</p>
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <button class="px-3 py-1 border rounded-lg text-sm text-gray-700"
+                    onclick="openPopup('KreditBee')">Know More</button>
+
+                <button class="px-3 py-1 bg-green-600 text-white rounded-lg text-sm shadow">
+                    Apply Now
+                </button>
+            </div>
+        </div>
+
+        <!-- PRODUCT 3 -->
+        <div class="product-card bg-white rounded-2xl shadow-lg p-4 flex items-center gap-4 border border-gray-200"
+             data-profile="business,salaried"
+             data-min="700"
+             data-max="900">
+
+            <img src="https://via.placeholder.com/70" class="w-16 h-16 rounded-xl" />
+
+            <div class="flex-1">
+                <p class="font-bold text-gray-900 text-base">PaySense</p>
+                <p class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-lg mt-1 w-fit">Paperless KYC</p>
+                <p class="text-xs text-gray-500 mt-1">Loan upto ₹3,00,000</p>
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <button class="px-3 py-1 border rounded-lg text-sm text-gray-700"
+                    onclick="openPopup('PaySense')">Know More</button>
+
+                <button class="px-3 py-1 bg-green-600 text-white rounded-lg text-sm shadow">
                     Apply Now
                 </button>
             </div>
         </div>
 
     </div>
-
 </div>
 
-<!-- FLOATING WHATSAPP BUTTON -->
-<a href="https://wa.me/911234567890"
-   class="fixed bottom-5 right-5 bg-green-600 p-3 rounded-full shadow-lg">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" class="w-8" />
-</a>
 
+<!-- ⭐ POPUP -->
+<div id="popupModal"
+     class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center px-4 backdrop-blur-sm">
+    
+    <div class="bg-white w-full max-w-md rounded-2xl shadow-xl p-5 animate-fade">
+        
+        <div class="flex justify-between items-center mb-3">
+            <h2 id="popupTitle" class="text-lg font-bold text-gray-800">Loan Details</h2>
+            <button onclick="closePopup()" class="text-red-500 text-xl font-bold">✖</button>
+        </div>
+
+        <div class="space-y-3 text-sm text-gray-700">
+
+            <div>
+                <p class="font-bold text-gray-900">Eligibility</p>
+                <ul class="list-disc ml-5">
+                    <li>Minimum CIBIL: 650+</li>
+                    <li>Age: 21–55</li>
+                    <li>Stable income required</li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="font-bold text-gray-900">Process</p>
+                <ul class="list-disc ml-5">
+                    <li>Register with basic details</li>
+                    <li>Upload PAN + Aadhaar</li>
+                    <li>Bank verification</li>
+                    <li>Amount disbursed instantly</li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="font-bold text-gray-900">Required Documents</p>
+                <ul class="list-disc ml-5">
+                    <li>Aadhaar Card</li>
+                    <li>PAN Card</li>
+                    <li>Bank Statement (3 months)</li>
+                    <li>Selfie Verification</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 mt-5">
+            <button onclick="closePopup()" class="w-full bg-gray-200 text-black py-2 rounded-xl font-semibold">
+                Close
+            </button>
+            <button class="w-full bg-green-600 text-white py-2 rounded-xl font-semibold">
+                Apply Now
+            </button>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ⭐ JS FILTER + POPUP -->
 <script>
-function openCategory(c) {
-    alert("Open category: " + c);
+let selectedProfile = "";
+let selectedCibil = 650;
+
+function openPopup(title) {
+    document.getElementById('popupTitle').innerText = title + " - Loan Information";
+    document.getElementById('popupModal').classList.remove("hidden");
+    document.getElementById('popupModal').classList.add("flex");
 }
+function closePopup() {
+    document.getElementById('popupModal').classList.add("hidden");
+    document.getElementById('popupModal').classList.remove("flex");
+}
+
 function filterProfile(p) {
-    alert("Filtered for: " + p);
+    selectedProfile = p;
+    filterProducts();
+}
+
+document.getElementById("cibilRange").addEventListener("input", function () {
+    selectedCibil = parseInt(this.value);
+    filterProducts();
+});
+
+function filterProducts() {
+    let cards = document.querySelectorAll(".product-card");
+
+    cards.forEach(card => {
+        let profiles = card.dataset.profile.split(",");
+        let min = parseInt(card.dataset.min);
+        let max = parseInt(card.dataset.max);
+
+        let matchProfile = selectedProfile === "" || profiles.includes(selectedProfile);
+        let matchCibil = selectedCibil >= min && selectedCibil <= max;
+
+        card.style.display = (matchProfile && matchCibil) ? "flex" : "none";
+    });
 }
 </script>
 
