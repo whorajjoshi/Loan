@@ -136,12 +136,12 @@
 
         <div class="p-4 bg-white rounded-xl shadow mx-3 mt-2">
             <label class="font-semibold">CIBIL Score</label>
-            <input type="range" min="300" max="900" value="650"
+            <input type="range" min="300" max="900" value="800"
                 id="cibilRange"
                 class="w-full mt-1"
                 oninput="document.getElementById('cibilValue').innerText=this.value">
             <p class="text-right font-bold text-sm mt-1">
-                Selected: <span id="cibilValue">650</span>
+                Selected: <span id="cibilValue">800</span>
             </p>
         </div>
 
@@ -149,10 +149,10 @@
             <label class="font-semibold text-gray-800">Select Profile</label>
 
             <div class="grid grid-cols-4 gap-2 mt-2 text-sm">
+               <button class="p-2 bg-gray-100 border rounded-lg" onclick="filterProfile('all')">All</button>
                 <button class="p-2 bg-gray-100 border rounded-lg" onclick="filterProfile('salaried')">Salaried</button>
                 <button class="p-2 bg-gray-100 border rounded-lg" onclick="filterProfile('self')">Self</button>
-                <button class="p-2 bg-gray-100 border rounded-lg" onclick="filterProfile('student')">Student</button>
-                <button class="p-2 bg-gray-100 border rounded-lg" onclick="filterProfile('business')">Business</button>
+                <button class="p-2 bg-gray-100 border rounded-lg" onclick="filterProfile('student')">Student</button>                
             </div>
         </div>
     </div>
