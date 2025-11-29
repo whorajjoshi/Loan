@@ -60,13 +60,11 @@
         <img src="banner1.jpg" class="w-full h-auto object-cover rounded-none shadow-md" />
     </div>
 
-    <!-- ⭐ Loan Category Section -->
+    <!-- Loan Category Section -->
     <div class="bg-gradient-to-r from-blue-50 to-blue-100 py-2 mt-2">
-
         <h2 class="text-lg font-bold px-3 mt-3 text-center text-gray-800 leading-tight">
             Loan Category According Your Profession
         </h2>
-
         <div class="grid grid-cols-2 gap-3 p-3">
             <button onclick="location.href='salaried.html'"
                 class="bg-blue-100 shadow p-3 rounded-xl flex items-center gap-3 border border-blue-200">
@@ -76,7 +74,6 @@
                     <p class="text-xs text-blue-700">Instant Loan</p>
                 </div>
             </button>
-
             <button onclick="location.href='self.html'"
                 class="bg-yellow-100 shadow p-3 rounded-xl flex items-center gap-3 border border-yellow-200">
                 <img src="https://cdn-icons-png.flaticon.com/512/2922/2922579.png" class="w-10" />
@@ -85,7 +82,6 @@
                     <p class="text-xs text-yellow-700">Low Interest</p>
                 </div>
             </button>
-
             <button onclick="location.href='student.html'"
                 class="bg-green-100 shadow p-3 rounded-xl flex items-center gap-3 border border-green-200">
                 <img src="https://cdn-icons-png.flaticon.com/128/3135/3135789.png" class="w-10" />
@@ -94,7 +90,6 @@
                     <p class="text-xs text-green-700">Education Loan</p>
                 </div>
             </button>
-
             <button onclick="location.href='business.html'"
                 class="bg-purple-100 shadow p-3 rounded-xl flex items-center gap-3 border border-purple-200">
                 <img src="https://cdn-icons-png.flaticon.com/512/1995/1995502.png" class="w-10" />
@@ -106,13 +101,11 @@
         </div>
     </div>
 
-    <!-- ⭐ Free Tools Section -->
+    <!-- Free Tools Section -->
     <div class="bg-gradient-to-r from-purple-50 to-purple-100 py-2 mt-2">
-
         <h2 class="text-lg font-bold px-3 mt-1 text-center text-gray-800">
             Premium Free Tools
         </h2>
-
         <div class="grid grid-cols-2 gap-3 px-3 mt-2 mb-3">
             <a href="https://sales.gromo.in/admin/check-credit/?versionCode=null">
                 <img src="b1.png" class="w-full h-auto rounded-xl shadow" />
@@ -123,9 +116,8 @@
         </div>
     </div>
 
-    <!-- ⭐ CIBIL Section -->
+    <!-- CIBIL Section -->
     <div class="bg-gradient-to-r from-green-50 to-green-100 py-3 mt-2">
-
         <h2 class="text-lg font-bold text-center text-gray-800 mt-1">
             Select Loan Offer According Your Profile
         </h2>
@@ -143,7 +135,6 @@
 
         <div class="p-3 bg-white rounded-xl shadow mx-3 mt-3">
             <label class="font-semibold text-gray-800">Select Profile</label>
-
             <div class="grid grid-cols-4 gap-2 mt-2 text-sm">
                 <button class="p-2 bg-gray-100 border rounded-lg" onclick="filterProfile('all')">All</button>
                 <button class="p-2 bg-gray-100 border rounded-lg" onclick="filterProfile('salaried')">Salaried</button>
@@ -153,95 +144,141 @@
         </div>
     </div>
 
-    <!-- ⭐ Loan Products -->
+    <!-- Loan Products Section -->
     <h2 class="text-lg font-bold px-3 mt-5 text-center text-gray-800">
         Top Loan Partners
     </h2>
 
     <div class="grid grid-cols-1 gap-4 p-3" id="products">
-
-        <!-- PRODUCT 1 -->
+        <!-- MoneyTap -->
         <div class="product-card bg-white rounded-2xl shadow-lg p-4 flex items-center gap-4 border border-gray-200"
              data-profile="salaried,self"
              data-min="650"
-             data-max="900">
+             data-max="900"
+             data-title="MoneyTap"
+             data-benefits="✔️ Instant approval<br>✔️ Flexible repayment<br>✔️ Paperless process"
+             data-eligibility="✔️ CIBIL 650+<br>✔️ Age 21–55<br>✔️ Stable income"
+             data-documents="✔️ Aadhaar<br>✔️ PAN<br>✔️ Bank Statement (3 months)"
+             data-apply="https://moneytap.com">
 
             <img src="https://via.placeholder.com/70" class="w-16 h-16 rounded-xl" />
-
             <div class="flex-1">
                 <p class="font-bold text-gray-900 text-base">MoneyTap</p>
                 <p class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-lg mt-1 w-fit">Instant Approval</p>
                 <p class="text-xs text-gray-500 mt-1">Loan upto ₹2,00,000</p>
             </div>
-
             <div class="flex flex-col gap-2">
                 <button class="px-3 py-1 border rounded-lg text-sm text-gray-700"
-                    onclick="openPopup('MoneyTap')">Know More</button>
-
-                <!-- APPLY NOW -->
+                        onclick="openPopup(this.parentElement.parentElement)">Know More</button>
                 <button class="px-3 py-1 bg-green-600 text-white rounded-lg text-sm shadow"
-                    onclick="window.location.href='https://moneytap.com';">
-                    Apply Now
-                </button>
+                        onclick="window.open('https://moneytap.com','_blank')">Apply Now</button>
             </div>
         </div>
 
-        <!-- PRODUCT 2 -->
+        <!-- KreditBee -->
         <div class="product-card bg-white rounded-2xl shadow-lg p-4 flex items-center gap-4 border border-gray-200"
              data-profile="student,self"
              data-min="600"
-             data-max="850">
+             data-max="850"
+             data-title="KreditBee"
+             data-benefits="✔️ Fast verification<br>✔️ Flexible repayment options"
+             data-eligibility="✔️ CIBIL 600+<br>✔️ Age 18–50"
+             data-documents="✔️ PAN<br>✔️ Aadhaar"
+             data-apply="https://kreditbee.in">
 
             <img src="https://via.placeholder.com/70" class="w-16 h-16 rounded-xl" />
-
             <div class="flex-1">
                 <p class="font-bold text-gray-900 text-base">KreditBee</p>
                 <p class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-lg mt-1 w-fit">Fast Verification</p>
                 <p class="text-xs text-gray-500 mt-1">Loan upto ₹1,50,000</p>
             </div>
-
             <div class="flex flex-col gap-2">
                 <button class="px-3 py-1 border rounded-lg text-sm text-gray-700"
-                    onclick="openPopup('KreditBee')">Know More</button>
-
-                <!-- APPLY NOW -->
+                        onclick="openPopup(this.parentElement.parentElement)">Know More</button>
                 <button class="px-3 py-1 bg-green-600 text-white rounded-lg text-sm shadow"
-                    onclick="window.location.href='https://kreditbee.in';">
-                    Apply Now
-                </button>
+                        onclick="window.open('https://kreditbee.in','_blank')">Apply Now</button>
             </div>
         </div>
 
-        <!-- PRODUCT 3 -->
+        <!-- PaySense -->
         <div class="product-card bg-white rounded-2xl shadow-lg p-4 flex items-center gap-4 border border-gray-200"
              data-profile="business,salaried"
              data-min="700"
-             data-max="900">
+             data-max="900"
+             data-title="PaySense"
+             data-benefits="✔️ Paperless KYC<br>✔️ High loan limits"
+             data-eligibility="✔️ CIBIL 700+<br>✔️ Age 21–55"
+             data-documents="✔️ PAN<br>✔️ Aadhaar<br>✔️ Bank Statement"
+             data-apply="https://paysense.com">
 
             <img src="https://via.placeholder.com/70" class="w-16 h-16 rounded-xl" />
-
             <div class="flex-1">
                 <p class="font-bold text-gray-900 text-base">PaySense</p>
                 <p class="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-lg mt-1 w-fit">Paperless KYC</p>
                 <p class="text-xs text-gray-500 mt-1">Loan upto ₹3,00,000</p>
             </div>
-
             <div class="flex flex-col gap-2">
                 <button class="px-3 py-1 border rounded-lg text-sm text-gray-700"
-                    onclick="openPopup('PaySense')">Know More</button>
-
-                <!-- APPLY NOW -->
+                        onclick="openPopup(this.parentElement.parentElement)">Know More</button>
                 <button class="px-3 py-1 bg-green-600 text-white rounded-lg text-sm shadow"
-                    onclick="window.location.href='https://paysense.com';">
-                    Apply Now
-                </button>
+                        onclick="window.open('https://paysense.com','_blank')">Apply Now</button>
+            </div>
+        </div>
+
+        <!-- HDFC PIXEL PLAY -->
+        <div class="product-card bg-white rounded-2xl shadow-lg p-4 flex items-center gap-4 border border-gray-200"
+             data-profile="salaried,self"
+             data-min="650"
+             data-max="900"
+             data-title="HDFC PIXEL PLAY"
+             data-benefits="✔️ Personalized Rewards<br>✔️ Unlimited Cashback<br>✔️ Airport Lounge Access"
+             data-eligibility="✔️ Age: 21–60 years (Salaried)<br>✔️ Minimum Income: ₹25,000/month"
+             data-documents="✔️ PAN<br>✔️ Aadhaar<br>✔️ Bank statement (6 months)"
+             data-apply="https://leads.banksathi.com/?h=bUZrazltK2haWFdjOHVSMEN2Tk4rUT09">
+
+            <img src="https://via.placeholder.com/70" class="w-16 h-16 rounded-xl" />
+            <div class="flex-1">
+                <p class="font-bold text-gray-900 text-base">HDFC PIXEL PLAY</p>
+                <p class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-lg mt-1 w-fit">Premium Benefits</p>
+                <p class="text-xs text-gray-500 mt-1">Personalized rewards card</p>
+            </div>
+            <div class="flex flex-col gap-2">
+                <button class="px-3 py-1 border rounded-lg text-sm text-gray-700"
+                        onclick="openPopup(this.parentElement.parentElement)">Know More</button>
+                <button class="px-3 py-1 bg-green-600 text-white rounded-lg text-sm shadow"
+                        onclick="window.open('https://leads.banksathi.com/?h=bUZrazltK2haWFdjOHVSMEN2Tk4rUT09','_blank')">Apply Now</button>
+            </div>
+        </div>
+
+        <!-- SBM ZET Credit Card -->
+        <div class="product-card bg-white rounded-2xl shadow-lg p-4 flex items-center gap-4 border border-gray-200"
+             data-profile="salaried,self"
+             data-min="600"
+             data-max="850"
+             data-title="SBM ZET Credit Card"
+             data-benefits="✔️ Earn up to 7% interest on FD<br>✔️ 100% digital onboarding"
+             data-eligibility="✔️ Age 22–40<br>✔️ Salaried employment"
+             data-documents="✔️ PAN<br>✔️ Aadhaar"
+             data-apply="https://leads.banksathi.com/?h=VDU2Y1podW5xYkcvcWFJWGIxbkdzUT09">
+
+            <img src="https://via.placeholder.com/70" class="w-16 h-16 rounded-xl" />
+            <div class="flex-1">
+                <p class="font-bold text-gray-900 text-base">SBM ZET Credit Card</p>
+                <p class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-lg mt-1 w-fit">Smart & Rewarding</p>
+                <p class="text-xs text-gray-500 mt-1">Minimum FD ₹2k-5k</p>
+            </div>
+            <div class="flex flex-col gap-2">
+                <button class="px-3 py-1 border rounded-lg text-sm text-gray-700"
+                        onclick="openPopup(this.parentElement.parentElement)">Know More</button>
+                <button class="px-3 py-1 bg-green-600 text-white rounded-lg text-sm shadow"
+                        onclick="window.open('https://leads.banksathi.com/?h=VDU2Y1podW5xYkcvcWFJWGIxbkdzUT09','_blank')">Apply Now</button>
             </div>
         </div>
 
     </div>
 </div>
 
-<!-- ⭐ POPUP -->
+<!-- ⭐ Popup HTML -->
 <div id="popupModal"
      class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center px-4 backdrop-blur-sm">
     
@@ -253,46 +290,25 @@
         </div>
 
         <div class="space-y-3 text-sm text-gray-700">
-
+            <div>
+                <p class="font-bold text-gray-900">Benefits</p>
+                <div id="popupBenefits"></div>
+            </div>
             <div>
                 <p class="font-bold text-gray-900">Eligibility</p>
-                <ul class="list-disc ml-5">
-                    <li>Minimum CIBIL: 650+</li>
-                    <li>Age: 21–55</li>
-                    <li>Stable income required</li>
-                </ul>
+                <div id="popupEligibility"></div>
             </div>
-
             <div>
-                <p class="font-bold text-gray-900">Process</p>
-                <ul class="list-disc ml-5">
-                    <li>Register with basic details</li>
-                    <li>Upload PAN + Aadhaar</li>
-                    <li>Bank verification</li>
-                    <li>Amount disbursed instantly</li>
-                </ul>
+                <p class="font-bold text-gray-900">Documents Required</p>
+                <div id="popupDocuments"></div>
             </div>
-
-            <div>
-                <p class="font-bold text-gray-900">Required Documents</p>
-                <ul class="list-disc ml-5">
-                    <li>Aadhaar Card</li>
-                    <li>PAN Card</li>
-                    <li>Bank Statement (3 months)</li>
-                    <li>Selfie Verification</li>
-                </ul>
-            </div>
-
         </div>
 
         <div class="grid grid-cols-2 gap-3 mt-5">
             <button onclick="closePopup()" class="w-full bg-gray-200 text-black py-2 rounded-xl font-semibold">
                 Close
             </button>
-
-            <!-- APPLY NOW inside POPUP -->
-            <button class="w-full bg-green-600 text-white py-2 rounded-xl font-semibold"
-                onclick="window.location.href='https://apply-now.com';">
+            <button id="popupApply" class="w-full bg-green-600 text-white py-2 rounded-xl font-semibold">
                 Apply Now
             </button>
         </div>
@@ -305,38 +321,37 @@
 let selectedProfile = "";
 let selectedCibil = 650;
 
-function openPopup(title) {
-    document.getElementById('popupTitle').innerText = title + " - Loan Information";
+function openPopup(productCard) {
+    const title = productCard.dataset.title;
+    const benefits = productCard.dataset.benefits;
+    const eligibility = productCard.dataset.eligibility;
+    const documents = productCard.dataset.documents;
+    const applyLink = productCard.dataset.apply;
+
+    document.getElementById('popupTitle').innerText = title;
+    document.getElementById('popupBenefits').innerHTML = benefits;
+    document.getElementById('popupEligibility').innerHTML = eligibility;
+    document.getElementById('popupDocuments').innerHTML = documents;
+    document.getElementById('popupApply').onclick = () => window.open(applyLink, "_blank");
+
     document.getElementById('popupModal').classList.remove("hidden");
     document.getElementById('popupModal').classList.add("flex");
 }
+
 function closePopup() {
     document.getElementById('popupModal').classList.add("hidden");
     document.getElementById('popupModal').classList.remove("flex");
 }
 
-function filterProfile(p) {
-    selectedProfile = p;
-    filterProducts();
-}
-
-document.getElementById("cibilRange").addEventListener("input", function () {
-    selectedCibil = parseInt(this.value);
-    filterProducts();
-});
-
-function filterProducts() {
-    let cards = document.querySelectorAll(".product-card");
-
+// Profile Filter
+function filterProfile(profile) {
+    selectedProfile = profile;
+    const cards = document.querySelectorAll('.product-card');
     cards.forEach(card => {
-        let profiles = card.dataset.profile.split(",");
-        let min = parseInt(card.dataset.min);
-        let max = parseInt(card.dataset.max);
-
-        let matchProfile = selectedProfile === "" || selectedProfile === "all" || profiles.includes(selectedProfile);
-        let matchCibil = selectedCibil >= min && selectedCibil <= max;
-
-        card.style.display = (matchProfile && matchCibil) ? "flex" : "none";
+        const prof = card.dataset.profile.split(',');
+        if(profile=='all' || prof.includes(profile)) {
+            card.style.display='flex';
+        } else { card.style.display='none'; }
     });
 }
 </script>
