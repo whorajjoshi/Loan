@@ -60,7 +60,6 @@
         <img src="banner1.jpg" class="w-full h-auto object-cover rounded-none shadow-md" />
     </div>
 
-
     <!-- ⭐ Loan Category Section -->
     <div class="bg-gradient-to-r from-blue-50 to-blue-100 py-2 mt-2">
 
@@ -107,7 +106,6 @@
         </div>
     </div>
 
-
     <!-- ⭐ Free Tools Section -->
     <div class="bg-gradient-to-r from-purple-50 to-purple-100 py-2 mt-2">
 
@@ -124,8 +122,6 @@
             </a>
         </div>
     </div>
-
-
 
     <!-- ⭐ CIBIL Section -->
     <div class="bg-gradient-to-r from-green-50 to-green-100 py-3 mt-2">
@@ -149,15 +145,13 @@
             <label class="font-semibold text-gray-800">Select Profile</label>
 
             <div class="grid grid-cols-4 gap-2 mt-2 text-sm">
-               <button class="p-2 bg-gray-100 border rounded-lg" onclick="filterProfile('all')">All</button>
+                <button class="p-2 bg-gray-100 border rounded-lg" onclick="filterProfile('all')">All</button>
                 <button class="p-2 bg-gray-100 border rounded-lg" onclick="filterProfile('salaried')">Salaried</button>
                 <button class="p-2 bg-gray-100 border rounded-lg" onclick="filterProfile('self')">Self</button>
                 <button class="p-2 bg-gray-100 border rounded-lg" onclick="filterProfile('student')">Student</button>                
             </div>
         </div>
     </div>
-
-
 
     <!-- ⭐ Loan Products -->
     <h2 class="text-lg font-bold px-3 mt-5 text-center text-gray-800">
@@ -184,7 +178,9 @@
                 <button class="px-3 py-1 border rounded-lg text-sm text-gray-700"
                     onclick="openPopup('MoneyTap')">Know More</button>
 
-                <button class="px-3 py-1 bg-green-600 text-white rounded-lg text-sm shadow">
+                <!-- APPLY NOW -->
+                <button class="px-3 py-1 bg-green-600 text-white rounded-lg text-sm shadow"
+                    onclick="window.location.href='https://moneytap.com';">
                     Apply Now
                 </button>
             </div>
@@ -208,7 +204,9 @@
                 <button class="px-3 py-1 border rounded-lg text-sm text-gray-700"
                     onclick="openPopup('KreditBee')">Know More</button>
 
-                <button class="px-3 py-1 bg-green-600 text-white rounded-lg text-sm shadow">
+                <!-- APPLY NOW -->
+                <button class="px-3 py-1 bg-green-600 text-white rounded-lg text-sm shadow"
+                    onclick="window.location.href='https://kreditbee.in';">
                     Apply Now
                 </button>
             </div>
@@ -232,7 +230,9 @@
                 <button class="px-3 py-1 border rounded-lg text-sm text-gray-700"
                     onclick="openPopup('PaySense')">Know More</button>
 
-                <button class="px-3 py-1 bg-green-600 text-white rounded-lg text-sm shadow">
+                <!-- APPLY NOW -->
+                <button class="px-3 py-1 bg-green-600 text-white rounded-lg text-sm shadow"
+                    onclick="window.location.href='https://paysense.com';">
                     Apply Now
                 </button>
             </div>
@@ -240,7 +240,6 @@
 
     </div>
 </div>
-
 
 <!-- ⭐ POPUP -->
 <div id="popupModal"
@@ -290,14 +289,16 @@
             <button onclick="closePopup()" class="w-full bg-gray-200 text-black py-2 rounded-xl font-semibold">
                 Close
             </button>
-            <button class="w-full bg-green-600 text-white py-2 rounded-xl font-semibold">
+
+            <!-- APPLY NOW inside POPUP -->
+            <button class="w-full bg-green-600 text-white py-2 rounded-xl font-semibold"
+                onclick="window.location.href='https://apply-now.com';">
                 Apply Now
             </button>
         </div>
 
     </div>
 </div>
-
 
 <!-- ⭐ JS FILTER + POPUP -->
 <script>
@@ -332,7 +333,7 @@ function filterProducts() {
         let min = parseInt(card.dataset.min);
         let max = parseInt(card.dataset.max);
 
-        let matchProfile = selectedProfile === "" || profiles.includes(selectedProfile);
+        let matchProfile = selectedProfile === "" || selectedProfile === "all" || profiles.includes(selectedProfile);
         let matchCibil = selectedCibil >= min && selectedCibil <= max;
 
         card.style.display = (matchProfile && matchCibil) ? "flex" : "none";
