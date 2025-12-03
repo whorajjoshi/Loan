@@ -6,20 +6,24 @@
 <title>Loan Application Portal</title>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100">
+<body class="bg-blue-50">
 
-<div class="max-w-3xl mx-auto p-4">
-    <h1 class="text-xl font-bold mb-4">Loan Products</h1>
+<!-- BACK BUTTON -->
+<header class="w-full bg-blue-600 text-white py-3 px-4 fixed top-0 left-0 z-50 shadow">
+    <div class="max-w-3xl mx-auto flex items-center gap-4">
+        <a href="index.html" class="bg-white text-blue-700 px-3 py-1 rounded-lg text-sm shadow">← Back</a>
+        <h1 class="text-lg font-bold">Loan Products</h1>
+    </div>
+</header>
 
-    <!-- CIBIL INPUT -->
+<div class="max-w-3xl mx-auto p-4 mt-20">
     <div class="mb-4">
-        <label class="font-semibold text-sm">Enter Your CIBIL Score</label>
+        <label class="font-semibold text-sm text-blue-800">Enter Your CIBIL Score</label>
         <input id="cibilInput" type="number" class="w-full p-2 border rounded-lg mt-1" placeholder="Enter CIBIL (300 - 900)" />
     </div>
 
-    <!-- PROFILE SELECTION -->
     <div class="mb-4">
-        <label class="font-semibold text-sm">Select Profile</label>
+        <label class="font-semibold text-sm text-blue-800">Select Profile</label>
         <select id="profileSelect" class="w-full p-2 border rounded-lg mt-1">
             <option value="all">All</option>
             <option value="salaried">Salaried</option>
@@ -27,7 +31,6 @@
         </select>
     </div>
 
-    <!-- PRODUCTS CONTAINER -->
     <div id="products" class="grid grid-cols-1 gap-4"></div>
 </div>
 
@@ -48,8 +51,14 @@
     </div>
 </div>
 
-<script>
+<!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/9610841436?text=Guide%20me%20for%20complete%20my%20loan%20process" target="_blank" 
+   class="fixed bottom-6 right-6 bg-green-600 text-white px-4 py-3 rounded-full shadow-lg text-sm font-semibold flex items-center gap-2">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-6 h-6" />
+    Chat on WhatsApp
+</a>
 
+<script>
 // PRODUCT DATA
 const loanProducts = [
     {
@@ -102,34 +111,26 @@ function addProduct(data) {
         <p class="font-bold text-gray-900 text-base mb-3">${data.title}</p>
 
         <div class="flex items-start gap-3">
+            <img src="${data.logo}" class="w-16 h-16 rounded-xl object-cover border" />
 
-    <img src="${data.logo}" class="w-16 h-16 rounded-xl object-cover border" />
+            <div class="flex-1 flex">
+                <div class="flex-1">
+                    <p class="text-xs text-gray-700 font-semibold">CIBIL Required: ${data.min} - ${data.max}</p>
+                    <p class="text-xs text-gray-700 font-semibold">Interest Rate: ${data.rate}</p>
+                    <p class="text-xs text-blue-700 font-semibold">For: ${data.profile.toUpperCase()}</p>
+                </div>
 
-    <div class="flex-1 flex">
-
-        <!-- LEFT SIDE TEXT -->
-        <div class="flex-1">
-            <p class="text-xs text-gray-700 font-semibold">CIBIL Required: ${data.min} - ${data.max}</p>
-            <p class="text-xs text-gray-700 font-semibold">Interest Rate: ${data.rate}</p>
-            <p class="text-xs text-blue-700 font-semibold">For: ${data.profile.toUpperCase()}</p>
+                <div class="w-60 text-[11px] text-gray-700 leading-tight ml-2 self-start">
+                    ${shortBenefits}
+                </div>
+            </div>
         </div>
 
-        <!-- BENEFITS start aligned with CIBIL ending -->
-        <div class="w-60 text-[11px] text-gray-700 leading-tight ml-2 self-start">
-            ${shortBenefits}
-        </div>
-
-    </div>
-</div>
-        </div>
-
-        <!-- BUTTON ROW -->
         <div class="grid grid-cols-2 gap-2 mt-3">
             <button onclick="openPopup(this.closest('.product-card'))" class="w-full text-center px-3 py-2 border rounded-lg text-xs font-semibold text-gray-700">Know More</button>
             <a href="${data.apply}" target="_blank" class="w-full text-center px-3 py-2 bg-green-600 text-white rounded-lg text-xs shadow font-semibold">Apply Now</a>
         </div>
 
-        <!-- DISCLAIMER WITH T&C -->
         <p class="text-[11px] text-gray-500 mt-3 text-left">
             <a href="${data.tnc}" target="_blank" class="underline text-blue-700">Terms & Conditions</a> —
             You will be redirected to an external financial partner. Approval and interest rates are decided by the lender.
@@ -139,7 +140,32 @@ function addProduct(data) {
     document.getElementById("products").appendChild(card);
 }
 
-loanProducts.forEach(addProduct);
+// FILTER FUNCTION
+function filterProducts() {
+    const cibil = parseInt(document.getElementById("cibilInput").value) || 0;
+    const profile = document.getElementById("profileSelect").value;
+
+    const container = document.getElementById("products");
+    container.innerHTML = "";
+
+    loanProducts.forEach(product => {
+        // CIBIL FILTER
+        if (cibil && (cibil < product.min || cibil > product.max)) return;
+
+        // PROFILE FILTER
+        if (profile !== "all" && product.profile !== profile && product.profile !== "all") return;
+
+        addProduct(product);
+    });
+}
+
+// EVENT LISTENERS
+
+document.getElementById("cibilInput").addEventListener("input", filterProducts);
+document.getElementById("profileSelect").addEventListener("change", filterProducts);
+
+// INITIAL LOAD
+filterProducts();
 
 // POPUP FUNCTIONS
 function openPopup(card) {
@@ -153,7 +179,6 @@ function openPopup(card) {
 function closePopup() {
     document.getElementById("popup").classList.add("hidden");
 }
-
 </script>
 
 </body>
