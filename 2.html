@@ -1,1 +1,189 @@
-v
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Loan Application Portal</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-blue-50">
+
+<!-- BACK BUTTON -->
+<header class="w-full bg-blue-600 text-white py-3 px-4 fixed top-0 left-0 z-50 shadow">
+    <div class="max-w-3xl mx-auto flex items-center gap-4">
+        <a href="index.html" class="bg-white text-blue-700 px-3 py-1 rounded-lg text-sm shadow">← Back</a>
+        <h1 class="text-lg font-bold">Loan Products</h1>
+    </div>
+</header>
+
+<div class="max-w-3xl mx-auto p-4 mt-14">
+    <div class="mb-4">
+        <label class="font-semibold text-sm text-blue-800">Enter Your CIBIL Score</label>
+        <input id="cibilInput" type="number" class="w-full p-2 border rounded-lg mt-1" placeholder="Enter CIBIL (300 - 900)" />
+    </div>
+
+    <div class="mb-4">
+        <label class="font-semibold text-sm text-blue-800">Select Profile</label>
+        <select id="profileSelect" class="w-full p-2 border rounded-lg mt-1">
+            <option value="all">All</option>
+            <option value="salaried">Salaried</option>
+            <option value="self">Self Employed</option>
+        </select>
+    </div>
+
+    <div id="products" class="grid grid-cols-1 gap-4"></div>
+</div>
+
+<!-- POPUP (KNOW MORE) -->
+<div id="popup" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl p-4 max-w-md w-full shadow-lg">
+        <h2 id="popupTitle" class="text-lg font-bold mb-2"></h2>
+        <p class="text-sm font-semibold mb-1">Benefits:</p>
+        <p id="popupBenefits" class="text-sm mb-2"></p>
+
+        <p class="text-sm font-semibold mb-1">Eligibility:</p>
+        <p id="popupEligibility" class="text-sm mb-2"></p>
+
+        <p class="text-sm font-semibold mb-1">Documents Required:</p>
+        <p id="popupDocuments" class="text-sm mb-4"></p>
+
+        <button onclick="closePopup()" class="w-full bg-red-600 text-white py-2 rounded-lg">Close</button>
+    </div>
+</div>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/9610841436?text=Guide%20me%20for%20complete%20my%20loan%20process" target="_blank" 
+   class="fixed bottom-6 right-6 bg-green-600 text-white px-4 py-3 rounded-full shadow-lg text-sm font-semibold flex items-center gap-2">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-6 h-6" />
+    Chat on Whatsapp
+</a>
+
+<script>
+// PRODUCT DATA
+const loanProducts = [
+    {
+        title: "POONAWALLA FINCORP PERSONAL LOAN",
+        logo: "https://via.placeholder.com/80",
+        min: 720,
+        max: 900,
+        rate: "10.5% – 22%",
+        profile: "salaried",
+        benefits: "💸 Attractive Interest Rate<br>🔍 No Hidden Charges<br>⚡ Quick Approval",
+        eligibility: "Age 23-58, Minimum Salary 20,000",
+        documents: "Aadhar, PAN, Bank Statement",
+        apply: "https://google.com",
+        tnc: "https://google.com"
+    },
+
+    {
+        title: "TEZ CREDIT PERSONAL LOAN",
+        logo: "https://via.placeholder.com/80",
+        min: 700,
+        max: 900,
+        rate: "12% – 28%",
+        profile: "all",
+        benefits: "⚡ Instant Approval<br>📄 Minimal Docs<br>💳 Flexible Amount",
+        eligibility: "Age 21-60, Income Proof",
+        documents: "Aadhar, PAN, Photograph",
+        apply: "https://google.com",
+        tnc: "https://google.com"
+    }
+];
+
+// CREATE PRODUCT CARDS
+function addProduct(data) {
+    let shortBenefits = data.benefits.split("<br>").slice(0, 2).join(" | ");
+
+    let card = document.createElement("div");
+    card.className = "product-card bg-white rounded-2xl shadow-lg p-4 border border-gray-200";
+
+    card.dataset.title = data.title;
+    card.dataset.benefits = data.benefits;
+    card.dataset.eligibility = data.eligibility;
+    card.dataset.documents = data.documents;
+    card.dataset.apply = data.apply;
+
+    card.dataset.profile = data.profile;
+    card.dataset.min = data.min;
+    card.dataset.max = data.max;
+
+    card.innerHTML = `
+        <p class="font-bold text-gray-900 text-base mb-3">${data.title}</p>
+
+        <div class="flex items-start gap-3">
+            <img src="${data.logo}" class="w-16 h-16 rounded-xl object-cover border" />
+
+            <div class="flex-1 flex flex-col gap-1">
+                <div class="flex justify-between items-center">
+    <p class="text-xs text-gray-700 font-semibold">CIBIL Required: ${data.min} - ${data.max}</p>
+    <p class="text-xs text-blue-700 font-semibold">For: ${data.profile.toUpperCase()}</p>
+</div>
+<p class="text-xs text-gray-700 font-semibold">Interest Rate: ${data.rate}</p>
+
+                <!-- SHORT BENEFITS ONE LINE BELOW TAGS -->
+                <p class="text-xs text-gray-700 mt-1">${shortBenefits}</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 mt-3">
+            <button onclick="openPopup(this.closest('.product-card'))" class="w-full text-center px-3 py-2 border rounded-lg text-xs font-semibold text-gray-700 hover:bg-gray-200">Know More</button>
+            <a href="${data.apply}" target="_blank" class="w-full text-center px-3 py-2 bg-green-600 text-white rounded-lg text-xs shadow font-semibold hover:bg-green-700">Apply Now</a>
+        </div>
+
+        <p class="text-gray-500 mt-3 text-left" style="font-size:9px;">
+            <a href="${data.tnc}" target="_blank" class="underline text-blue-700">Terms & Conditions</a> —
+            You will be redirected to an external financial partner. Approval and interest rates are decided by the lender.
+        </p>
+    `;
+
+    document.getElementById("products").appendChild(card);
+}
+
+// FILTER FUNCTION
+function filterProducts() {
+    const cibil = parseInt(document.getElementById("cibilInput").value) || 0;
+    const profile = document.getElementById("profileSelect").value;
+
+    const container = document.getElementById("products");
+    container.innerHTML = "";
+
+    loanProducts.forEach(product => {
+        if (cibil && (cibil < product.min || cibil > product.max)) return;
+        if (profile !== "all" && product.profile !== profile && product.profile !== "all") return;
+        addProduct(product);
+    });
+}
+
+document.getElementById("cibilInput").addEventListener("input", filterProducts);
+document.getElementById("profileSelect").addEventListener("change", filterProducts);
+
+filterProducts();
+
+// POPUP FUNCTIONS
+function openPopup(card) {
+    document.getElementById("popupTitle").innerHTML = card.dataset.title;
+    document.getElementById("popupBenefits").innerHTML = card.dataset.benefits;
+    document.getElementById("popupEligibility").innerHTML = card.dataset.eligibility;
+    document.getElementById("popupDocuments").innerHTML = card.dataset.documents;
+
+    document.getElementById("popup").classList.remove("hidden");
+}
+function closePopup() {
+    document.getElementById("popup").classList.add("hidden");
+}
+</script>
+<footer class="mt-12 py-5 px-4 text-left text-[10px] bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-t-2xl shadow-md">
+
+    <h3 class="text-sm font-semibold tracking-wide mb-1">
+     Credit Line • Loan & Card Info Guide
+    </h3>
+
+    <p class="text-[9px] opacity-90 leading-relaxed mb-2">
+        Trusted finance & loan information helper.  
+        We never collect documents or charge fees.  
+        All products belong to respective institutions.
+    </p>
+</footer>
+
+</body>
+</html>
