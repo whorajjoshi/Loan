@@ -52,9 +52,9 @@
     </div>
 </div>
 
-<!-- WHATSAPP FLOATING BUTTON (NON-TRANSPARENT) -->
+<!-- WHATSAPP FLOATING BUTTON -->
 <a href="https://wa.me/9610841436?text=Guide%20me%20for%20complete%20my%20loan%20process" target="_blank" 
-   class="fixed bottom-6 right-6 bg-green-600 text-white px-4 py-3 rounded-full shadow-lg text-sm font-semibold flex items-center gap-2" style="backdrop-filter:none !important; background-color:#16a34a !important;">
+   class="fixed bottom-6 right-6 bg-green-600 text-white px-4 py-3 rounded-full shadow-lg text-sm font-semibold flex items-center gap-2">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-6 h-6" />
     Chat on Whatsapp
 </a>
@@ -62,35 +62,217 @@
 <script>
 // PRODUCT DATA
 const loanProducts = [
-    {
-        title: "POONAWALLA FINCORP PERSONAL LOAN",
-        logo: "https://via.placeholder.com/80",
-        min: 720,
-        max: 900,
-        rate: "10.5% – 22%",
-        profile: "salaried",
-        benefits: "💸 Attractive Interest Rate<br>🔍 No Hidden Charges<br>⚡ Quick Approval",
-        eligibility: "Age 23-58, Minimum Salary 20,000",
-        documents: "Aadhar, PAN, Bank Statement",
-        apply: "https://google.com",
-        tnc: "https://google.com"
-    },
-
-    {
-        title: "TEZ CREDIT PERSONAL LOAN",
-        logo: "https://via.placeholder.com/80",
-        min: 700,
-        max: 900,
-        rate: "12% – 28%",
-        profile: "all",
-        benefits: "⚡ Instant Approval<br>📄 Minimal Docs<br>💳 Flexible Amount",
-        eligibility: "Age 21-60, Income Proof",
-        documents: "Aadhar, PAN, Photograph",
-        apply: "https://google.com",
-        tnc: "https://google.com"
-    }
+   {
+title: "POONAWALLA FINCORP PERSONAL LOAN",
+logo: "https://via.placeholder.com/80",
+min: 720,
+max: 900,
+rate: "10.5% – 22%",
+profile: "salaried,self",
+benefits: "💸 Attractive Interest Rate<br>🔍 No Hidden Charges<br>⚡ Quick Approvals<br>🚫 Zero Pre-payment Charges<br>🌟 Exclusive Benefits",
+eligibility: "✔️ Age: 24–55 years<br>✔️ CIBIL Score: 720+<br>✔️ Indian Citizen<br>✔️ Salaried & Self-Employed both eligible<br>✔️ Minimum Annual Household Income: ₹3,00,000",
+documents: "✔️ PAN Card<br>✔️ Aadhaar Card<br>✔️ Driving Licence<br>✔️ Voter ID<br>✔️ Passport",
+apply: "https://loan.gromo.in/pl/V-aqzOog-K",
+tnc: "https://loan.gromo.in/pl/V-aqzOog-K"
+},
+{
+title: "LENDINGPLATE PERSONAL LOAN",
+logo: "https://via.placeholder.com/80",
+min: 600,
+max: 850,
+rate: "Varies",
+profile: "salaried",
+benefits: "🌐 Instant Online Application<br>💸 Collateral-Free Loan<br>📊 Flexible Loan Amounts<br>❌ No Hidden Charges<br>⚡ Fast Access to Funds<br>🔒 Secure Process",
+eligibility: "✔️ Age: 21–60 years<br>✔️ CIBIL Score: 600+<br>✔️ Only Salaried Individuals<br>✔️ Minimum Monthly Income: ₹20,000<br>✔️ Work Email Mandatory",
+documents: "✔️ Aadhaar & PAN (KYC)<br>✔️ Salary Bank Statements<br>✔️ Salary Slip<br>✔️ Residence Proof<br>✔️ Work Email",
+apply: "https://loan.gromo.in/lp/V-aqzOog-K",
+tnc: "https://loan.gromo.in/lp/V-aqzOog-K"
+},
+{
+title: "PREFR PERSONAL LOAN",
+logo: "https://via.placeholder.com/80",
+min: 725,
+max: 900,
+rate: "Varies",
+profile: "all,salaried,self",
+benefits: "📝 Zero Paperwork<br>🤠 Salaried & Self Employed Eligible<br>⏱ Instant Loan Approval<br>👉🏻 Same Day Disbursal",
+eligibility: "✔️ Salaried & Self-Employed Eligible<br>✔️ Min Income: 15k–20k<br>✔️ Age: 22–55<br>✔️ CIBIL 725+",
+documents: "✔️ PAN + Aadhaar<br>✔️ Income Proof<br>✔️ Bank Statement<br>✔️ Address Proof",
+apply: "https://loan.gromo.in/pf/V-aqzOog-K",
+tnc: "https://loan.gromo.in/pf/V-aqzOog-K"
+},
+{
+title: "KREDITBEE PERSONAL LOAN",
+logo: "https://via.placeholder.com/80",
+min: 500,
+max: 850,
+rate: "1.02%–2.49% per month",
+profile: "all,salaried,self",
+benefits: "💰 Loan: ₹7,000–₹5,00,000<br>📱 100% Digital<br>⚡ 10-Min Disbursal<br>😇 No Collateral<br>🇮🇳 PAN India",
+eligibility: "✔️ Age 21–50<br>✔️ Income 10k+<br>✔️ Aadhaar + Mobile Linked<br>✔️ Salaried & Self-Employed",
+documents: "✔️ Photo<br>✔️ Aadhaar<br>✔️ PAN",
+apply: "https://loan.gromo.in/kb/V-aqzOog-K",
+tnc: "https://loan.gromo.in/kb/V-aqzOog-K"
+},
+{
+title: "HERO FINCORP PERSONAL LOAN",
+logo: "[https://via.placeholder.com/80](https://via.placeholder.com/80)",
+min: 720,
+max: 900,
+rate: "Varies",
+profile: "salaried,self",
+benefits: "🏦 Easy Personal Loan for All Purposes<br>💸 Collateral-Free Loan<br>🔐 Seamless Login Process<br>⚡ Instant Access to Funds<br>✅ Simple Repayment<br>💰 Loan Amount up to ₹5,00,000",
+eligibility: "✔️ Age: 25–45 years<br>✔️ CIBIL Score: 720+<br>✔️ Income: ₹25,000+ Monthly<br>✔️ Salaried & Self-Employed Eligible",
+documents: "✔️ PAN Card<br>✔️ Aadhaar Card<br>✔️ Income Proof<br>✔️ Bank Statements<br>✔️ Address Proof",
+apply: "[https://loan.gromo.in/hf/V-aqzOog-K](https://loan.gromo.in/hf/V-aqzOog-K)",
+tnc: "[https://loan.gromo.in/hf/V-aqzOog-K](https://loan.gromo.in/hf/V-aqzOog-K)"
+},
+{
+  title: "UNITY SFB PERSONAL LOAN",
+  logo: "https://via.placeholder.com/70",
+  min: 680,
+  max: 900,
+  rate: "Varies",
+  profile: "salaried,self",
+  benefits: "⚡ Get Loan up to ₹5,00,000 in Minutes<br>📝 No Paperwork Required<br>🏦 No Bank Visit<br>💸 No Collateral Required<br>🚀 Instant Digital Process",
+  eligibility: "✔️ Age: 23–55 years<br>✔️ Salaried & Self-Employed Eligible<br>✔️ Monthly Income: ₹20,000+ OR Turnover ₹25 Lakh/Year<br>✔️ Salary Bank Statement (Last 6 Months Required)<br>✔️ CIBIL Score: 680+<br>✔️ No 90+ DPD in last 12 months<br>✔️ No 30+ DPD in last 3 months<br>✔️ Minimum 18 Months Bureau History",
+  documents: "✔️ PAN Card<br>✔️ Aadhaar Card<br>✔️ Bank Statement (6 Months)<br>✔️ Income Proof",
+  apply: "https://loan.gromo.in/ut/V-aqzOog-K",
+  tnc: "https://loan.gromo.in/ut/V-aqzOog-K"
+},
+{
+  title: "MONEYVIEW PERSONAL LOAN",
+  logo: "https://via.placeholder.com/70",
+  min: 600,
+  max: 850,
+  rate: "1.33% per month onwards",
+  profile: "salaried,self",
+  benefits: "💸 Loan up to ₹5,00,000<br>💰 Tenure up to 60 Months<br>⏱ Instant Approval in 2 Minutes<br>⚡ 24-Hour Disbursal<br>🤩 Interest Starting at 1.33%/Month<br>💁🏻‍♀️ Processing Fees from 2%<br>📌 Final rates decided by Moneyview",
+  eligibility: "✔️ Salaried & Self-Employed Eligible<br>✔️ Monthly Income: ₹13,500+ (Bank Account)<br>✔️ Credit Score: 600+<br>✔️ Age: 21–57 years<br>✔️ No EMI Delays >15 days (Past)<br>✔️ No Settlement/Write-off in Last 36 Months",
+  documents: "✔️ PAN Card<br>✔️ Aadhaar Card<br>✔️ Bank Statement<br>✔️ Income Proof",
+  apply: "https://loan.gromo.in/mv/V-aqzOog-K",
+  tnc: "https://loan.gromo.in/mv/V-aqzOog-K"
+},
+{
+  title: "INCRED PERSONAL LOAN",
+  logo: "https://via.placeholder.com/70",
+  min: 650,
+  max: 900,
+  rate: "1.33% per month onwards",
+  profile: "salaried",
+  benefits: "📃 No Collateral Required<br>🗓 Tenure up to 60 Months<br>💰 Loan Amount ₹50,000–₹15,00,000<br>🤠 Interest Starting 1.33%/Month<br>📄 3 Months Bank Statement Required",
+  eligibility: "✔️ Salaried Employees Only<br>✔️ Age: 21–55 years<br>✔️ Monthly Income: ₹15,000+<br>✔️ Valid PAN Card Required<br>✔️ Credit History: 12+ Months<br>✔️ CIBIL Score: 650+<br>✔️ Available in Limited Pincodes",
+  documents: "✔️ PAN Card<br>✔️ Aadhaar Card<br>✔️ 3 Months Bank Statement<br>✔️ Salary Slip<br>✔️ Address Proof",
+  apply: "https://loan.gromo.in/in/V-aqzOog-K",
+  tnc: "https://loan.gromo.in/in/V-aqzOog-K"
+},
+{
+  title: "TEZ CREDIT PERSONAL LOAN",
+  logo: "https://via.placeholder.com/70",
+  min: 720,
+  max: 900,
+  rate: "Varies",
+  profile: "salaried,self",
+  benefits: "⚡ Instant Approval<br>💰 Loan up to ₹2,50,000<br>📄 Minimal Documentation<br>🧾 Salary Eligibility from ₹18,000<br>⏱️ Quick Disbursal<br>📍 Available in 8,000+ Pincodes",
+  eligibility: "✔️ Salaried / Self Employed<br>✔️ Age: 21–55 years<br>✔️ Monthly Income: ₹18,000+<br>✔️ PAN & Aadhaar Mandatory<br>✔️ CIBIL Score: 720+ Preferred<br>✔️ Quick Verification",
+  documents: "✔️ PAN Card<br>✔️ Aadhaar Card<br>✔️ Bank Statement<br>✔️ Salary Slip (If Salaried)<br>✔️ Address Proof",
+  apply: "https://your-tez-credit-link.com",
+  tnc: "https://your-tez-credit-link.com"
+},
+{
+  title: "IDFC FIRST BANK PERSONAL LOAN",
+  logo: "https://via.placeholder.com/70",
+  min: 730,
+  max: 900,
+  rate: "9.99% onwards",
+  profile: "salaried,self",
+  benefits: "💼 Instant Personal Loan<br>🌟 Approved Loan up to ₹10 Lakhs<br>💸 Flexible EMI Dates<br>🔓 Zero Foreclosure Charges<br>📉 ROI Starting 9.99%<br>📆 Tenure 9–60 Months",
+  eligibility: "✔️ Age: 25–60 Years<br>✔️ CIBIL Score 730+<br>✔️ Salaried & Self-employed<br>✔️ No Existing IDFC Relation (NTB)<br>✔️ Processing Fee up to 2% Deducted<br>✔️ PAN Required for e-KYC",
+  documents: "✔️ Physical PAN Card<br>✔️ Aadhaar<br>✔️ Bank Statement<br>✔️ Income Proof (If Required)",
+  apply: "https://loan.gromo.in/lo/V-aqzOog-K",
+  tnc: "https://loan.gromo.in/lo/V-aqzOog-K"
+},
+{
+    title: "KISSHT PERSONAL LOAN",
+    logo: "https://via.placeholder.com/80",
+    min: 650,
+    max: 900,
+    rate: "As per profile",
+    profile: "salaried",
+    benefits: "⚡ Instant Approval & Disbursal<br>📄 Minimal Docs: PAN, Aadhaar, Selfie<br>🏦 100% Online Process<br>💰 Loan ₹5,000 – ₹5,00,000<br>🔄 Flexible Tenure Options<br>💳 No Collateral Required",
+    eligibility: "Age 21–59, Salary 15,000+, CIBIL 650+, Apply from own number & device, No defaults or delays.",
+    documents: "PAN, Aadhaar, Selfie, Bank Statement (If required)",
+    apply: "https://loan.gromo.in/kh/V-aqzOog-K",
+    tnc: "#"
+},
+{
+    title: "FLOT PERSONAL LOAN",
+    logo: "https://via.placeholder.com/80",
+    min: 0,
+    max: 900,
+    rate: "As per NBFC",
+    profile: "salaried",
+    benefits: "💸 Loan from ₹1,000 to ₹99,000<br>🗓️ Tenure 3–12 Months<br>🧾 Minimal Digital Documentation<br>🔐 NBFC Backed<br>🚀 Fast Disbursal",
+    eligibility: "Age 21+, Salary 35,000+ banked income, PAN India, No credit score required.",
+    documents: "PAN, Aadhaar, Selfie, Bank Statement (if required)",
+    apply: "https://loan.gromo.in/mx/V-aqzOog-K",
+    tnc: "#"
+},
+{
+    title: "SMARTCOIN PERSONAL LOAN",
+    logo: "https://via.placeholder.com/80",
+    min: 650,
+    max: 900,
+    rate: "2% per month",
+    profile: "salaried,self",
+    benefits: "⏳ Instant Approval<br>📱 100% Digital<br>🗓 Tenure up to 9 Months<br>👉 2% Monthly Interest<br>🎁 50% OFF on Processing Fee (Code: DADA50)",
+    eligibility: "Age 24–45, Salary 20,000+ OR Business turnover 3L/yr, Not for students/housewives, No past defaults, CIBIL 650+",
+    documents: "PAN, Aadhaar, Selfie, Bank Statement (If needed)",
+    apply: "https://loan.gromo.in/sn/V-aqzOog-K",
+    tnc: "#"
+},
+{
+    title: "HDFC SMART JUMBO LOAN",
+    logo: "https://via.placeholder.com/80",
+    min: 720,
+    max: 900,
+    rate: "As per HDFC",
+    profile: "creditcard",
+    benefits: "🎉 No Impact on Card Limit<br>🕙 Instant Approval<br>🤹 Avail Multiple Times<br>⏳ Flexible EMIs<br>📃 Minimal Docs",
+    eligibility: "Must have HDFC Credit Card, No dues pending, Good bureau history, No EMI on CC.",
+    documents: "PAN, Aadhaar, HDFC Credit Card, Basic KYC",
+    apply: "https://loan.gromo.in/hl/V-aqzOog-K",
+    tnc: "#"
+},
+{
+    title: "LOAN 112 PERSONAL LOAN",
+    logo: "https://via.placeholder.com/80",
+    min: 0,
+    max: 900,
+    rate: "APR ~35%",
+    profile: "salaried",
+    benefits: "✨ Instant Loan up to ₹1,00,000<br>📱 100% Paperless<br>🪪 Aadhaar eSign + Digital KYC<br>📊 Flexible EMIs<br>🏦 Direct Bank Transfer",
+    eligibility: "Age 21–56, Salaried only, Salary must be bank credited, Only serviceable pincodes.",
+    documents: "PAN, Aadhaar, Selfie, Basic KYC, Bank Statement",
+    apply: "https://loan.gromo.in/ln/V-aqzOog-K",
+    tnc: "#"
+},
+{
+    title: "M POKKET PERSONAL LOAN",
+    logo: "https://via.placeholder.com/80",
+    min: 0,
+    max: 750,
+    rate: "As per profile",
+    profile: "students,salaried",
+    benefits: "👩🏻‍🎓 Student Loan up to ₹500<br>🤵🏻 Salaried Loan up to ₹2,000<br>💳 No Credit Score Required<br>📱 Fully Digital Paperless Journey<br>🔏 No Security Required<br>⏱ 7-Min Approval • 2-Min Bank Transfer",
+    eligibility: "Students & Salaried Employees eligible. No credit score required. New-to-credit allowed.",
+    documents: "📚 Students: College ID + Govt ID (Voter/Driving License/Passport/Aadhaar/PAN)<br><br>💼 Salaried: Govt ID + PAN + Last 3 Months Bank Statement + Salary Slip/Offer Letter/Joining Letter",
+    apply: "https://loan.gromo.in/mp/V-aqzOog-K",
+    tnc: "#"
+}
 ];
 
+// BADGE
 function getTagBadge(profile) {
     if (profile === "salaried") {
         return `<span class="flex items-center gap-1 bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full text-[10px] font-semibold">
@@ -141,18 +323,19 @@ function addProduct(data) {
 
         <div class="grid grid-cols-2 gap-2 mt-3">
             <button onclick="openPopup(this.closest('.product-card'))" class="w-full text-center px-3 py-2 border rounded-lg text-xs font-semibold text-gray-700 hover:bg-gray-200">Know More</button>
-            <a href="${data.apply}" target="_blank" class="w-full text-center px-3 py-2 bg-blue-600 text-white rounded-lg text-xs shadow font-semibold hover:bg-blue-700">Apply Now</a>
+            <a href="${data.apply}" target="_blank" class="w-full text-center px-3 py-2 bg-green-600 text-white rounded-lg text-xs shadow font-semibold hover:bg-green-700">Apply Now</a>
         </div>
 
         <p class="text-gray-500 mt-3 text-left" style="font-size:9px;">
             <a href="${data.tnc}" target="_blank" class="underline text-blue-700">Terms & Conditions</a> —
-            You will be redirected to an external financial partner. Approval and interest rates are decided by the lender.
+            You will be redirected to an external financial partner.
         </p>
     `;
 
     document.getElementById("products").appendChild(card);
 }
 
+// ⭐ FIXED FILTER (Profile.includes)
 function filterProducts() {
     const cibil = parseInt(document.getElementById("cibilInput").value) || 0;
     const profile = document.getElementById("profileSelect").value;
@@ -161,8 +344,13 @@ function filterProducts() {
     container.innerHTML = "";
 
     loanProducts.forEach(product => {
+        // CIBIL filter
         if (cibil && (cibil < product.min || cibil > product.max)) return;
-        if (profile !== "all" && product.profile !== profile && product.profile !== "all") return;
+
+        // Profile filter (fixed)
+        let profiles = product.profile.split(","); 
+        if (profile !== "all" && !profiles.includes(profile)) return;
+
         addProduct(product);
     });
 
