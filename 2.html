@@ -55,7 +55,7 @@
 <a href="https://wa.me/9610841436?text=Guide%20me%20for%20complete%20my%20loan%20process" target="_blank" 
    class="fixed bottom-6 right-6 bg-green-600 text-white px-4 py-3 rounded-full shadow-lg text-sm font-semibold flex items-center gap-2">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-6 h-6" />
-    Chat on WhatsApp
+    Chat on Whatsapp
 </a>
 
 <script>
@@ -120,7 +120,8 @@ function addProduct(data) {
                     <p class="text-xs text-blue-700 font-semibold">For: ${data.profile.toUpperCase()}</p>
                 </div>
 
-                <div class="w-40 text-[8px] text-gray-700 leading-tight ml-2 self-start">
+                <!-- SHORT BENEFITS SIZE HALF -->
+                <div class="w-50 text-gray-700 leading-tight ml-2 self-start" style="font-size:15px;">
                     ${shortBenefits}
                 </div>
             </div>
@@ -131,7 +132,8 @@ function addProduct(data) {
             <a href="${data.apply}" target="_blank" class="w-full text-center px-3 py-2 bg-green-600 text-white rounded-lg text-xs shadow font-semibold">Apply Now</a>
         </div>
 
-        <p class="text-[6px] text-gray-500 mt-3 text-left">
+        <!-- T&C SIZE HALF -->
+        <p class="text-gray-500 mt-3 text-left" style="font-size:12px;">
             <a href="${data.tnc}" target="_blank" class="underline text-blue-700">Terms & Conditions</a> —
             You will be redirected to an external financial partner. Approval and interest rates are decided by the lender.
         </p>
@@ -149,22 +151,15 @@ function filterProducts() {
     container.innerHTML = "";
 
     loanProducts.forEach(product => {
-        // CIBIL FILTER
         if (cibil && (cibil < product.min || cibil > product.max)) return;
-
-        // PROFILE FILTER
         if (profile !== "all" && product.profile !== profile && product.profile !== "all") return;
-
         addProduct(product);
     });
 }
 
-// EVENT LISTENERS
-
 document.getElementById("cibilInput").addEventListener("input", filterProducts);
 document.getElementById("profileSelect").addEventListener("change", filterProducts);
 
-// INITIAL LOAD
 filterProducts();
 
 // POPUP FUNCTIONS
